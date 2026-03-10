@@ -14,7 +14,7 @@
         96,
         0
       ],
-      "id": "9af92268-69b0-4c60-87b3-462de8a15981",
+      "id": "9af92268-69b0-4c60-87b3-462de8a15980",
       "name": "Webhook",
       "webhookId": "943908ae-4f45-4dd3-9f48-fbe94eb11f81"
     },
@@ -157,7 +157,7 @@
       "type": "n8n-nodes-base.evaluation",
       "typeVersion": 4.8,
       "position": [
-        1216,
+        1152,
         -160
       ],
       "id": "79909016-ec03-41bd-90a8-85a94aca8dc8",
@@ -168,15 +168,13 @@
         "operation": "setMetrics",
         "metric": "stringSimilarity",
         "expectedAnswer": "={{ $('When fetching a dataset row').item.json.expected_output }}",
-        "actualAnswer": "={{ $('AI Agent').item.json.output }}",
-        "options": {
-          "metricName": "equality"
-        }
+        "actualAnswer": "={{ $json.output }}",
+        "options": {}
       },
       "type": "n8n-nodes-base.evaluation",
       "typeVersion": 4.8,
       "position": [
-        1008,
+        976,
         -160
       ],
       "id": "dfdfcfb6-8633-4933-a1c8-8c9276b20513",
@@ -285,16 +283,15 @@
     },
     "Evaluation": {
       "main": [
-        [
-          {
-            "node": "ai-judge",
-            "type": "main",
-            "index": 0
-          }
-        ],
+        [],
         [
           {
             "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "ai-judge",
             "type": "main",
             "index": 0
           }
@@ -319,7 +316,7 @@
     "binaryMode": "separate",
     "availableInMCP": false
   },
-  "versionId": "0a00db92-ad0e-454a-aa64-b4ff4738fd25",
+  "versionId": "afd754ab-9f15-4c84-a972-7f2ff72b1fc7",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "43a05ce589b039a8f39d72f886d870fc802640a88ae901fd42ed11096a19b314"
