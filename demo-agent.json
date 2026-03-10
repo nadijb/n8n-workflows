@@ -1,0 +1,90 @@
+{
+  "name": "demo-agent",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "953d8bca-6473-4450-bf82-04d9bd19ba3b",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "amount": 1
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        224,
+        0
+      ],
+      "id": "cbc1e8a7-02cc-4c38-93ac-bb5a6886ab6f",
+      "name": "Wait",
+      "webhookId": "c924d2f4-c367-4be8-97d3-635e791cb6a3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fe0cc63f-362e-49ae-b8c3-fd04220a77da",
+              "name": "foo",
+              "value": "bar",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        448,
+        0
+      ],
+      "id": "959aa9ba-b0ae-44a3-9121-d652fafa64e1",
+      "name": "Edit Fields"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "f0001213-460c-48e9-9d5f-0b5f56d15604",
+  "meta": {
+    "instanceId": "1307138f546dca35b2c3a418dcf97c1e25d1ec8966daebcd7afb0793d2ea9664"
+  },
+  "id": "uAoAFXSG8tOid5Sp",
+  "tags": []
+}
