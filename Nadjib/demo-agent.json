@@ -1,0 +1,88 @@
+{
+  "name": "demo-agent",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "97104b98-f681-4a80-babe-dd1f6e2b061b",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -96,
+        -16
+      ],
+      "id": "04728156-0f02-4fdd-a4cf-4f4f46608072",
+      "name": "Webhook",
+      "webhookId": "97104b98-f681-4a80-babe-dd1f6e2b061b"
+    },
+    {
+      "parameters": {
+        "amount": 3
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        128,
+        -16
+      ],
+      "id": "437541db-9632-4a07-90ef-b39e739a858b",
+      "name": "Wait",
+      "webhookId": "bb1b2083-90dc-4af0-b850-98021c189367"
+    },
+    {
+      "parameters": {
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        352,
+        -16
+      ],
+      "id": "34728d63-0b68-43b4-9993-d5801a4f3641",
+      "name": "Respond to Webhook"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "8bc36f9e-f301-40da-90d9-3bce7f31719d",
+  "meta": {
+    "instanceId": "43a05ce589b039a8f39d72f886d870fc802640a88ae901fd42ed11096a19b314"
+  },
+  "id": "I24iYSXGtWKZunk6",
+  "tags": []
+}
