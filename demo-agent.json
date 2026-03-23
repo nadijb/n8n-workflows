@@ -1,0 +1,112 @@
+{
+  "name": "demo-agent-2",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "97104b98-f681-4a80-babe-dd1f6e2b061b",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        -32
+      ],
+      "id": "04728156-0f02-4fdd-a4cf-4f4f46608072",
+      "name": "Webhook",
+      "webhookId": "97104b98-f681-4a80-babe-dd1f6e2b061b"
+    },
+    {
+      "parameters": {
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        496,
+        -48
+      ],
+      "id": "34728d63-0b68-43b4-9993-d5801a4f3641",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "url": "https://jsonplaceholder.typicode.com/users/1",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        240,
+        -32
+      ],
+      "id": "d1f10be5-402e-4add-94f7-bd56af369a61",
+      "name": "HTTP Request",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        512,
+        112
+      ],
+      "id": "ed9fede2-32b0-454a-a066-1e81b6d25e53",
+      "name": "No Operation, do nothing"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "ae016a34-de3e-404a-b8b0-a2d9a231c50a",
+  "meta": {
+    "instanceId": "43a05ce589b039a8f39d72f886d870fc802640a88ae901fd42ed11096a19b314"
+  },
+  "id": "I24iYSXGtWKZunk6",
+  "tags": []
+}
